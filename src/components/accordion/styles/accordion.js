@@ -20,6 +20,7 @@ export const Title = styled.h1`
   margin-bottom: 8px;
   color: white;
   text-align: center;
+
   @media (max-width: 600px) {
     font-size: 35px;
   }
@@ -29,9 +30,9 @@ export const Item = styled.div`
   color: white;
   margin-bottom: 10px;
   margin: auto;
-  max-width: 670px;
+  max-width: 700px;
   width: 100%;
-  
+
   &:first-of-type {
     margin-top: 3em;
   }
