@@ -2,8 +2,6 @@ import React, { useContext, createContext, useState } from 'react';
 import PropTypes from 'prop-types';
 import { Container, Inner, Title, Item, Header, Body } from './styles/accordion';
 
-
-
 export default function Accordion({children, ...restProps}) {
   return(
     <Container {...restProps}>
