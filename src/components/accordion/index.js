@@ -4,7 +4,6 @@ import { Container, Inner, Title, Item, Header, Body } from './styles/accordion'
 
 export default function Accordion({
   children, ...restProps}) {
-  console.log(children);
   return(
     <Container {...restProps}>
      <Inner>{children}</Inner>

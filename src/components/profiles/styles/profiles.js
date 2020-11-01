@@ -1,7 +1,5 @@
 import styled from 'styled-components/macro';
 
-// Container, Title, List,  User, Picture, Name
-
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
@@ -13,7 +11,7 @@ export const Container = styled.div`
 
 export const Title = styled.h1`
   width: 100%;
-  color: white;
+  color: #fff;
   font-size: 48px;
   text-align: center;
   font-weight: 500;
@@ -21,7 +19,7 @@ export const Title = styled.h1`
 
 export const List = styled.ul`
   padding: 0;
-  margin:0;
+  margin: 0;
   display: flex;
   flex-direction: row;
 `;
@@ -38,7 +36,7 @@ export const Name = styled.p`
 `;
 
 export const Picture = styled.img`
-  width: 100;
+  width: 100%;
   max-width: 150px;
   height: auto;
   border: 3px solid black;
@@ -56,7 +54,7 @@ export const Item =  styled.li`
     border: 3px solid white;
   }
 
-  &:hover > ${Name} {
+  &:hover ${Name} {
     font-weight: bold;
     color: white;
   } 
@@ -65,3 +63,4 @@ export const Item =  styled.li`
     margin-right: 0;
   }
 `;
+
