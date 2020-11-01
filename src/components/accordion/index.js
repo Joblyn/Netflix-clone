@@ -1,25 +1,20 @@
 import React, { useContext, createContext, useState } from 'react';
-import PropTypes from 'prop-types';
+
 import { Container, Inner, Title, Item, Header, Body } from './styles/accordion';
 
-export default function Accordion({children, ...restProps}) {
+export default function Accordion({
+  children, ...restProps}) {
+  console.log(children);
   return(
     <Container {...restProps}>
      <Inner>{children}</Inner>
     </Container>
   )
 }
-Accordion.propTypes = {
-  children: PropTypes.node
-}
 
 Accordion.Title = function AccordionTitle({children, ...restProps}) {
   return <Title {...restProps}>{children}</Title>
 } 
-Accordion.Title.propTypes = {
-  children: PropTypes.node
-}
-
 
 const ToggleContext = createContext();
 
@@ -32,9 +27,6 @@ Accordion.Item = function AccordionItem({children, ...restProps}) {
     </ToggleContext.Provider>
   );  
 }; 
-Accordion.Item.propTypes = {
-  children: PropTypes.node
-}
 
 Accordion.Header = function AccordionHeader({children, ...restProps}) {
   const { toggleShow, setToggleShow } = useContext(ToggleContext);
@@ -50,15 +42,9 @@ Accordion.Header = function AccordionHeader({children, ...restProps}) {
      </Header>
   );
 }; 
-Accordion.Header.propTypes = {
-  children: PropTypes.node
-}
 
 Accordion.Body = function AccordionBody({children, ...restProps}) {
   const { toggleShow } = useContext(ToggleContext);
 
   return toggleShow ? <Body {...restProps}>{children}</Body> : null; 
 }; 
-Accordion.Body.propTypes = {
-  children: PropTypes.node
-}

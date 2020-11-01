@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+
 import { Header } from '../components';
 import * as ROUTES from '../constants/routes';
 import logo from '../logo.svg';
@@ -14,8 +14,4 @@ export default function HeaderContainer({ children }) {
       {children}
     </Header>
   )
-}
-
-HeaderContainer.propTypes = {
-  children: PropTypes.node
 }

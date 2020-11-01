@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Header, Profiles } from '../components';
 import * as ROUTES from '../constants/routes';
 import logo from '../logo.svg';
@@ -24,8 +23,4 @@ export function SelectProfileContainer({ user, setProfile }) {
       </Profiles>
     </>
   )
-}
-SelectProfileContainer.propTypes = {
-  user: PropTypes.node,
-  setProfile: PropTypes.node
 }

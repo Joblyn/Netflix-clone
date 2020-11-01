@@ -10,7 +10,6 @@ export default function Browse() {
 
   // create slides 
   const slides = selectionFilter({ series, films });
-  console.log(slides);
 
   return (
     <BrowseContainer slides={slides} />

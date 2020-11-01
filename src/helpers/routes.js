@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+
 import { Route, Redirect } from 'react-router-dom';
 
 export function IsUserRedirect({ user, loggedInPath, children, ...restProps }) {
@@ -23,17 +23,11 @@ export function IsUserRedirect({ user, loggedInPath, children, ...restProps }) {
     />   
   );
 }
-IsUserRedirect.propTypes = {
-  children: PropTypes.node,
-  user: PropTypes.node,
-  loggedInPath: PropTypes.node
-}
-
 export function ProtectedRoute({ user, children, ...restProps }) {
   return (
     <Route 
       {...restProps}
-      render = {({ location}) => {
+      render = {({ location }) => {
         if(user) {
           return children;
         }
@@ -52,8 +46,4 @@ export function ProtectedRoute({ user, children, ...restProps }) {
       }}
     />     
   )
-}
-ProtectedRoute.propTypes = {
-  children: PropTypes.node,
-  user: PropTypes.node
 }
