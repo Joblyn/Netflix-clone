@@ -4,9 +4,9 @@ import{ Spinner, LockBody, ReleaseBody, Picture } from './styles/loading';
 
 export default function Loading({ src, ...restProps }) {
   return (
-    <Spinner {...restProps}>
+    <Spinner id='spinner' {...restProps}>
       <LockBody />
-      <Picture src={`/images/users/${src}.png`} />
+      <Picture id="picture" src={`/images/users/${src}.png`} />
     </Spinner>
   )
 }
