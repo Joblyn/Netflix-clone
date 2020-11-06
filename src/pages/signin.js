@@ -39,7 +39,7 @@ export default function Signin() {
           <Form.Title>
             Signin
           </Form.Title>
-          {error && <Form.Error>{error}</Form.Error>}
+          {error && <Form.Error data-testid="error">{error}</Form.Error>}
 
           <Form.Base onSubmit={handleSignin} method="POST">
             <Form.Input placeholder="Email Address"
@@ -53,7 +53,7 @@ export default function Signin() {
               autoComplete = "off"
               onChange ={({ target }) => setPassword(target.value)} 
             />
-            <Form.Submit disabled={isInvalid} type="submit">Sign In</Form.Submit>
+            <Form.Submit datas-testid="sign-in" disabled={isInvalid} type="submit">Sign In</Form.Submit>
           </Form.Base>
 
           <Form.Text>

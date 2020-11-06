@@ -86,16 +86,19 @@ export const Item = styled.div`
   position: relative;
   cursor: pointer;
   transition: transform 0.2s;
+
   &:hover {
     transform: scale(1.3);
     z-index: 99;
   }
-  @media (min-width: 1200px) {
+
+  @media (min-width: 1000px) {
     &:hover ${Meta}, &:hover ${Text}, &:hover ${SubTitle} {
       display: block;
       z-index: 100;
     }
   }
+
   &:first-of-type {
     margin-left: 56px;
     @media (max-width: 1000px) {
