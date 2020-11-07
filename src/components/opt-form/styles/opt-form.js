@@ -4,7 +4,6 @@ export const Container = styled.div`
   display: flex;
   justify-content: center;
   height: 100%;
-  margin-top: 20px;
   flex-wrap: wrap;
 
   @media (max-width: 1000px) {
@@ -56,9 +55,16 @@ export const Button = styled.button`
 `;
 
 export const Text = styled.p`
-  font-size: 19.2px;
+  @import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
+
+  font-family: 'Rubik', sans-serif;
+  font-size: 1.2rem;
   color: white;
   text-align: center;
+  webkit-font-smoothing: antialiased;
+  font-weight: 500;
+  margin-block-start:0.8em;
+  margin-block-end:0.8em;
 
   @media (max-width: 600px) {
     font-size: 16px;

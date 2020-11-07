@@ -6,6 +6,7 @@ export const Background = styled.div`
   flex-direction: column;
   background: url(${({ src }) => (src ? `../images/misc/${src}.jpg` : '../images/misc/home-bg.jpg')}) top left / cover
     no-repeat;
+  filter: brightness(100%) contrast(100%) saturate(90%) hue-rotate(360deg);
   @media (max-width: 1100px) {
     ${({ dontShowOnSmallViewPort }) => dontShowOnSmallViewPort && `background: none;`}
   }
