@@ -12,11 +12,14 @@ export default function Signin() {
   const [emailAddress, setEmailAddress] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
 
   const isInvalid = password === '' || emailAddress === '';
+  console.log(isInvalid);
+
   const handleSignin = e => {
     e.preventDefault();
-
+    setIsLoading(true);
     // firebase auth
     firebase 
       .auth()
@@ -26,6 +29,7 @@ export default function Signin() {
         history.push(ROUTES.BROWSE);
       })
       .catch(error => {
+        setIsLoading(false);
         setEmailAddress('');
         setPassword('');
         setError(error.message);
@@ -53,7 +57,7 @@ export default function Signin() {
               autoComplete = "off"
               onChange ={({ target }) => setPassword(target.value)} 
             />
-            <Form.Submit datas-testid="sign-in" disabled={isInvalid} type="submit">Sign In</Form.Submit>
+            <Form.Submit data-testid="sign-in" disabled={isInvalid} isLoading={isLoading} type="submit">{isLoading ? <Form.Loading /> : 'Sign In' }</Form.Submit>
           </Form.Base>
 
           <Form.Text>

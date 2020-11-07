@@ -75,17 +75,25 @@ export const Input = styled.input`
 `;
 
 export const Submit = styled.button`
-  background: #e50914;
+  background: ${({ isLoading }) => (isLoading ? '#000' : '#e50914' )};
   border-radius: 4px;
   font-size: 16px;
   font-weight: bold;
   margin: 24px 0 12px;
-  padding: 16px;
-  border: 0;
+  padding: ${({ isLoading }) => (isLoading ? '0' : '16px')};
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
   color: white;
   cursor: pointer;
 
   &:disabled {
     opacity: 0.5
   }
+`;
+
+export const Loading = styled.img`
+  width: 80px;
+  height: auto;
 `;

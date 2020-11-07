@@ -76,4 +76,5 @@ export const Body = styled.div`
     font-size: 16px;
     line-height: 22px;
   }
+
 `;

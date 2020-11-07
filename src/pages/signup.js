@@ -14,11 +14,15 @@ export default function Signup() {
   const [emailAddress, setEmailAddress] = useState();
   const [password, setPassword] = useState();
   const [error, setError] = useState();
+  const [isLoading, setIsLoading] = useState(false);
 
-  const isInvalid = password === '' || emailAddress === '' ||firstName === '';
+  const isInvalid = password === '' || emailAddress === '' || firstName === '';
+
+  console.log(isInvalid);
 
   const handleSignup = e => {
     e.preventDefault();
+    setIsLoading(true);
 
     // firebase 
     firebase 
@@ -38,6 +42,7 @@ export default function Signup() {
       setEmailAddress('');
       setPassword('');
       setError(error.message);
+      setIsLoading(false);
     })
 
   }
@@ -67,7 +72,7 @@ export default function Signup() {
               autoComplete = "off"
               onChange ={({ target }) => setPassword(target.value)} 
             />
-            <Form.Submit disabled={isInvalid} type="submit">Sign Up</Form.Submit>
+            <Form.Submit data-testid="sign-up" disabled={!isInvalid} type="submit" isLoading={isLoading}>{isLoading ? <Form.Loading /> : 'Sign Up'}</Form.Submit>
           </Form.Base>
 
         <Form.Text>

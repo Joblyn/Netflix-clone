@@ -1,51 +1,53 @@
-import React, { useRef } from 'react'; 
-import { gsap } from "gsap/all";
-import { useIntersection } from "react-use";
+import React, { useEffect } from 'react'; 
+import { gsap } from "gsap";
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+gsap.registerPlugin(ScrollTrigger);
 
 import jumboData from '../fixtures/jumbo';
 import { Jumbotron } from '../components';
 
 export function JumbotronContainer() {
-  const sectionRef = useRef(null);
+  // let tl = new TimelineLite({ delay: 0.3 });
 
-  const intersection = useIntersection(sectionRef, {
-    root: null,
-    rootmargin: "0",
-    threshold: 0.5
-  })
-
-  const fadeIn = element => {
-    gsap.from(element, 5, {
-      opacity: 1,
-      x: -60,
-      ease: 'power4.out',
-      stagger: {
-        amount: 0.3
+  useEffect(() => {
+    gsap.from(".textanim", {
+      delay: 0.5,
+      duration: 2,
+      y: "100%",
+      opacity: 0,
+      stagger: 0.2,
+      ease: "power3.Out",
+      start: 'top 50%',
+      end: 'bottom 60%',
+      scrollTrigger: {
+        trigger: '.anim',
+        toggleActions: 'restart complete reverse reset'
       }
     })
-  }
-
-  const fadeOut = element => {
-    gsap.from(element, 1, {
+    
+    gsap.from(".imageanim", {
+      duration: 2,
+      x: "100%",
       opacity: 0,
-      x: -100,
-      ease: 'power4.out',
+      ease: "power3.out",
+      start: 'top 50%',
+      end: 'bottom 60%', 
+      scrollTrigger: {
+        trigger: ".anim",
+        toggleActions: 'restart complete reverse reset'
+      }
     })
-  }
-
-  intersection && intersection.intersectionRatio < 0.5 ?
-  fadeOut(".fadeIn")
-  : fadeIn(".fadeOut");  
+  }, []);
 
   return (
-    <Jumbotron.Container ref={sectionRef}>
+    <Jumbotron.Container>
       {jumboData.map(item=>(
-        <Jumbotron key={item.id} direction={item.direction}>
-          <Jumbotron.Pane className="fadeIn" ref={sectionRef}>
-            <Jumbotron.Title>{item.title}</Jumbotron.Title>
-            <Jumbotron.SubTitle>{item.subTitle}</Jumbotron.SubTitle>
+        <Jumbotron className="anim" key={item.id} direction={item.direction}>
+          <Jumbotron.Pane>
+            <Jumbotron.Title className="textanim">{item.title}</Jumbotron.Title>
+            <Jumbotron.SubTitle className="textanim">{item.subTitle}</Jumbotron.SubTitle>
           </Jumbotron.Pane>
-          <Jumbotron.Pane className="fadeIn">
+          <Jumbotron.Pane className="imageanim">
             <Jumbotron.Image src={item.image} alt={item.alt}/>
           </Jumbotron.Pane>
         </Jumbotron>
