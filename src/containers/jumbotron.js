@@ -12,29 +12,27 @@ export function JumbotronContainer() {
   useEffect(() => {
     gsap.from(".textanim", {
       delay: 0.5,
-      duration: 2,
+      duration: 2.5,
       y: "100%",
       opacity: 0,
       stagger: 0.2,
       ease: "power3.Out",
-      start: 'top 50%',
+      start: 'top 40%',
       end: 'bottom 60%',
       scrollTrigger: {
-        trigger: '.anim',
-        toggleActions: 'restart complete reverse reset'
+        trigger: '.anim'
       }
     })
     
     gsap.from(".imageanim", {
-      duration: 2,
+      duration: 2.5,
       x: "100%",
       opacity: 0,
       ease: "power3.out",
-      start: 'top 50%',
+      start: 'top 40%',
       end: 'bottom 60%', 
       scrollTrigger: {
-        trigger: ".anim",
-        toggleActions: 'restart complete reverse reset'
+        trigger: ".anim"
       }
     })
   }, []);
