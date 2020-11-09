@@ -31,8 +31,15 @@ export const Link = styled.p`
   color: #fff;
   text-decoration: none;
   margin-right: 30px;
+  font-size: 1.2rem;
   font-weight: ${({ active }) => (active === 'true' ? '700' : 'normal')};
+  border-bottom: ${({ active }) => (active === 'true' ? '2px solid red' : 'none')};
   cursor: pointer;
+
+  @media (max-width: 700px) {
+    ${({ dontShowOnSmallViewPort }) => dontShowOnSmallViewPort && `display: none;`}
+  }
+
   &:hover {
     font-weight: bold;
   }
@@ -44,6 +51,15 @@ export const Link = styled.p`
 export const Group = styled.div`
   display: flex;
   align-items: center;
+  
+  @media (max-width: 700px) {
+    ${({ onSmallViewPort }) => onSmallViewPort && `justify-content: space-around;`}
+    ${({ onSmallViewPort }) => onSmallViewPort && `margin-top: -20px;`};
+  }
+  
+  @media (min-width: 700px) {
+    ${({ dontShowOnLargeViewPort }) => dontShowOnLargeViewPort && `display: none;`};
+  }
 `;
 
 export const SearchInput = styled.input`
@@ -66,8 +82,9 @@ export const Search = styled.div`
     color: white;
     cursor: pointer;
   }
+
   @media (max-width: 700px) {
-    display: none;
+    ${({ dontShowOnSmallViewPort }) => dontShowOnSmallViewPort && `display: none;`}
   }
 `;
 
@@ -159,6 +176,9 @@ export const Feature = styled(Container)`
   width: 50%;
   @media (max-width: 1100px) {
     display: none;
+    padding: 2px;
+    width: 100%;
+    margin: 0;
   }
 `;
 
@@ -169,6 +189,10 @@ export const FeatureCallOut = styled.h2`
   font-weight: bold;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.45);
   margin: 0;
+
+  @media (max-width: 1100px) {
+    font-size: 20px;
+  }
 `;
 
 export const Text = styled.p`

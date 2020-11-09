@@ -17,6 +17,7 @@ export const Container = styled.div`
   > ${Title} {
     @media (max-width: 1000px) {
       margin-left: 30px;
+      margin-bottom: 20px;
     }
   }
   &:last-of-type {
@@ -59,6 +60,12 @@ export const Text = styled.p`
 export const Entities = styled.div`
   display: flex;
   flex-direction: row;
+  width: 100%;
+  overflow-x: scroll;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
 `;
 
 export const Meta = styled.div`
@@ -73,6 +80,7 @@ export const Image = styled.img`
   border: 0;
   width: 100%;
   max-width: 305px;
+  min-width: 200px;
   cursor: pointer;
   height: auto;
   padding: 0;

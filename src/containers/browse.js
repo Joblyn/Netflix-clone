@@ -48,15 +48,15 @@ export function BrowseContainer({ slides }) {
          <Header.Frame>
            <Header.Group>
              <Header.Logo to={ROUTES.HOME} src={logo} alt="Netflix" />
-             <Header.TextLink active={category === 'series' ? 'true' : 'false'} onClick={() => setCategory('series')}>
+             <Header.TextLink active={category === 'series' ? 'true' : 'false'} onClick={() => setCategory('series')} dontShowOnSmallViewPort>
                Series
              </Header.TextLink>
-             <Header.TextLink active={category === 'films' ? 'true' : 'false'} onClick={() => setCategory('films')}>
+             <Header.TextLink active={category === 'films' ? 'true' : 'false'} onClick={() => setCategory('films')} dontShowOnSmallViewPort>
                Films
              </Header.TextLink>
            </Header.Group>
            <Header.Group>
-             <Header.Search searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
+             <Header.Search searchTerm={searchTerm} setSearchTerm={setSearchTerm} dontShowOnSmallViewPort/>
              <Header.Profile>
                <Header.Picture src={user.photoURL} />
                <Header.Dropdown>
@@ -71,6 +71,16 @@ export function BrowseContainer({ slides }) {
              </Header.Profile>
            </Header.Group>
          </Header.Frame>
+        
+        <Header.Group onSmallViewPort dontShowOnLargeViewPort>
+          <Header.TextLink active={category === 'series' ? 'true' : 'false'} onClick={() => setCategory('series')}>
+            Series
+          </Header.TextLink>
+          <Header.TextLink active={category === 'films' ? 'true' : 'false'} onClick={() => setCategory('films')}>
+            Films
+          </Header.TextLink>
+          <Header.Search />
+        </Header.Group>
 
          <Header.Feature>
            <Header.FeatureCallOut>Watch Joker Now</Header.FeatureCallOut>
