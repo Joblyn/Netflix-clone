@@ -59,6 +59,11 @@ export const Text = styled.p`
 export const Entities = styled.div`
   display: flex;
   flex-direction: row;
+  overflow-x: auto;
+
+  &::-webkit-scrollbar{
+    display: none;
+  }
 `;
 
 export const Meta = styled.div`
@@ -86,6 +91,7 @@ export const Item = styled.div`
   position: relative;
   cursor: pointer;
   transition: transform 0.2s;
+  min-width: 180px;
 
   &:hover {
     transform: scale(1.3);
