@@ -18,8 +18,6 @@ export default function Signup() {
 
   const isInvalid = password === '' || emailAddress === '' || firstName === '';
 
-  console.log(isInvalid);
-
   const handleSignup = e => {
     e.preventDefault();
     setIsLoading(true);
@@ -72,7 +70,7 @@ export default function Signup() {
               autoComplete = "off"
               onChange ={({ target }) => setPassword(target.value)} 
             />
-            <Form.Submit data-testid="sign-up" disabled={!isInvalid} type="submit" isLoading={isLoading}>{isLoading ? <Form.Loading /> : 'Sign Up'}</Form.Submit>
+            <Form.Submit data-testid="sign-up" disabled={isInvalid} type="submit" isLoading={isLoading}>{isLoading ? <Form.Loading /> : 'Sign Up'}</Form.Submit>
           </Form.Base>
 
         <Form.Text>
