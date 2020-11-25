@@ -74,7 +74,7 @@ export default function Signup() {
           </Form.Base>
 
         <Form.Text>
-          New To Netflix? <Form.Link to='/signin'>Sign in now.</Form.Link>
+          Already have an account? <Form.Link to='/signin'>Sign in now.</Form.Link>
         </Form.Text>
         <Form.TextSmall>
           {`This page is protected by Google reCAPTCHA to ensure you're not a bot. Learn more.`}
