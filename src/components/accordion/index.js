@@ -6,7 +6,7 @@ export default function Accordion({
   children, ...restProps}) {
   return(
     <Container {...restProps}>
-     <Inner>{children}</Inner>
+      <Inner>{children}</Inner>
     </Container>
   )
 }
